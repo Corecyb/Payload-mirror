@@ -68,5 +68,5 @@ jobs:
           else
             git commit -m "chore(pages): publish payloads.json [skip ci]"
             git push origin gh-pages --force
-            echo "Published to gh-pages"
+            echo "Published to gh-pages "
           fi
