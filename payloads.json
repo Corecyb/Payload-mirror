@@ -23,13 +23,14 @@
   },
   {
     "name": "kstuff-lite-drakmor",
-    "filename": "kstuff-lite-drakmor_1.2-dr-test2.elf",
-    "url": "https://github.com/Corecyb/payload-mirror/releases/download/payloads-mirror/kstuff-lite-drakmor_1.2-dr-test2.elf",
+    "filename": "kstuff-lite-drakmor_1.2-dr-test1.elf",
+    "url": "https://github.com/Corecyb/payload-mirror/releases/download/payloads-mirror/kstuff-lite-drakmor_1.2-dr-test1.elf",
     "source": "https://github.com/drakmor/kstuff-lite/releases",
-    "source_direct": "https://github.com/drakmor/kstuff-lite/releases/download/1.2-dr-test2/kstuff.elf",
+    "source_direct": "https://github.com/drakmor/kstuff-lite/releases/download/1.2-dr-test1/kstuff.elf",
     "description": "drakmor's fork of kstuff-lite - Lite version of kstuff with firmware support up to 12.70.",
     "last_update": "2026-05-31",
-    "version": "1.2-dr-test2",
+    "version": "1.2-dr-test1",
+    "allow_prerelease": true,
     "checksum": ""
   },
   {
