@@ -1,0 +1,32 @@
+      - name: Upload payload files and payloads.json to release
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          # Get existing release or create one
+          RELEASE_TAG="payloads-mirror"
+
+          # Check if release exists
+          if ! gh release view $RELEASE_TAG 2>/dev/null; then
+            echo "Creating new release..."
+            gh release create $RELEASE_TAG --title "PS5 Payloads Mirror" --notes "Automated mirror of PS5 payloads"
+          fi
+
+          # Upload all files in payloads directory and payloads.json
+          if [ -d "payloads" ]; then
+            for file in payloads/*; do
+              if [ -f "$file" ]; then
+                filename=$(basename "$file")
+                echo "Uploading $filename..."
+                # Delete existing asset if it exists
+                gh release delete-asset $RELEASE_TAG "$filename" -y 2>/dev/null || true
+                # Upload new asset
+                gh release upload $RELEASE_TAG "$file"
+              fi
+            done
+          fi
+
+          # Upload payloads.json to release
+          if [ -f "payloads.json" ]; then
+            echo "Uploading payloads.json..."
+            gh release delete-asset $RELEASE_TAG "payloads.json" -y 2>/dev/null || true
+            gh release upload $RELEASE_TAG "payloads.json"
+          fi
