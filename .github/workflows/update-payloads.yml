@@ -7,7 +7,7 @@
           # Check if release exists
           if ! gh release view $RELEASE_TAG 2>/dev/null; then
             echo "Creating new release..."
-            gh release create $RELEASE_TAG --title "PS5 Payloads Mirror" --notes "Automated mirror of PS5 payloads"
+            gh release create $RELEASE_TAG --title "PS5 Payloads Mirror" --notes "Automated mirror of PS5 payloads "
           fi
 
           # Upload all files in payloads directory and payloads.json
