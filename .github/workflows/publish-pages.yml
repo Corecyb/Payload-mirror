@@ -1,0 +1,72 @@
+name: Publish payloads.json to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'payloads.json'
+      - '.github/workflows/update-payloads.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Ensure payloads.json exists
+        run: |
+          if [ ! -f payloads.json ]; then
+            echo "payloads.json not found" && exit 1
+          fi
+
+      - name: Publish to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Fetch gh-pages if it exists
+          git fetch origin gh-pages || true
+
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            echo "gh-pages exists, checking it out"
+            git checkout gh-pages
+            # Remove everything (but keep .git)
+            git rm -rf . || true
+          else
+            echo "gh-pages does not exist, creating orphan branch"
+            git checkout --orphan gh-pages
+            # Remove files from worktree
+            git rm -rf . || true
+          fi
+
+          # Copy payloads.json and README for convenience
+          mkdir -p .
+          cp -f ../payloads.json ./payloads.json || cp -f payloads.json ./payloads.json || true
+          # Also include README if present in main
+          if [ -f ../README.md ]; then
+            cp -f ../README.md ./README.md
+          elif [ -f README.md ]; then
+            cp -f README.md ./README.md
+          fi
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "chore(pages): publish payloads.json [skip ci]"
+            git push origin gh-pages --force
+            echo "Published to gh-pages"
+          fi
