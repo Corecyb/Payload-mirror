@@ -13,7 +13,7 @@
     },
     {
       "name": "Spectrum-Library",
-      "filename": "Spectrum-Library_SpectrumLibrary_1.4.elf",
+      "filename": "SpectrumLibrary_1.4.elf",
       "url": "https://github.com/Phoenixx1202/Spectrum-Library/releases/download/SpectrumLibrary_1.4/SpectrumLibrary_1.4.elf",
       "description": "Game library manager for PS5 with poster rendering and catalog support.",
       "last_update": "2026-06-14",
@@ -36,6 +36,15 @@
       "description": "A fully automated, background 'Auto-Mounter' payload for Jailbroken PlayStation 5 consoles.",
       "last_update": "2026-06-03",
       "version": "1.6test15-fix2",
+      "allow_prerelease": true
+    },
+    {
+      "name": "PegasusDL",
+      "filename": "pegasus_dl.elf",
+      "url": "https://github.com/pegasus-ps5/pegasus-dl/releases/download/v1.5.0/pegasus_dl.elf",
+      "description": "Direct game downloader payload for Jailbroken PlayStation 5 consoles.",
+      "last_update": "2026-06-19",
+      "version": "v1.5.0",
       "allow_prerelease": true
     }
   ]
