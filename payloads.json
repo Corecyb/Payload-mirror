@@ -14,10 +14,10 @@
     {
       "name": "Spectrum-Library",
       "filename": "SpectrumLibrary_1.4.elf",
-      "url": "https://github.com/Phoenixx1202/Spectrum-Library/releases/download/SpectrumLibrary_1.4/SpectrumLibrary_1.4.elf",
+      "url": "https://github.com/Phoenixx1202/Spectrum-Library/releases/download/SpectrumLibrary_1.4.1/SpectrumLibrary_1.4.1.elf",
       "description": "Game library manager for PS5 with poster rendering and catalog support.",
       "last_update": "2026-06-14",
-      "version": "SpectrumLibrary_1.4",
+      "version": "SpectrumLibrary_1.4.1",
       "allow_prerelease": true
     },
     {
