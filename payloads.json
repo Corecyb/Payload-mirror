@@ -46,6 +46,15 @@
       "last_update": "2026-06-19",
       "version": "v1.5.0",
       "allow_prerelease": true
+    },
+    {
+      "name": "SonicLoader",
+      "filename": "elf-arsenal.elf",
+      "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.21/elf-arsenal.elf",
+      "description": "All in one for PlayStation 5 consoles.",
+      "last_update": "2026-06-19",
+      "version": "v1.6.21",
+      "allow_prerelease": true
     }
   ]
 }
